@@ -1,0 +1,9 @@
+.content__general__app{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px repeat(2, 1f);
+    grid-gap: 1rem
+}
+.conten__router{
+    margin: 0 1rem 0 1rem;
+}

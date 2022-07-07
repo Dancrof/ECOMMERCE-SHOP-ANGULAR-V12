@@ -1,0 +1,23 @@
+.title{
+    display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      box-orient: vertical;
+      -webkit-line-clamp: 1;
+      line-clamp: 11;
+      overflow: hidden;
+  }
+  .example-card {
+      max-width: 400px;
+    }
+    
+  .example-header-image {
+      background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+      background-size: cover;
+  }
+  .flex__action{
+    display: flex;
+    justify-content: space-between;
+  }
