@@ -1,1 +1,56 @@
-<p>checkcart works!</p>
+<div class="container">
+    <form class="example-form">
+        <h2>Datos de Envio</h2>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nombres Completos</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Apellidos Completos</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Direccion</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St"></textarea
+        >
+      </mat-form-field>
+    </p>
+
+    <table class="example-full-width" cellspacing="0">
+      <tr class="flex__wraper">
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Ciudad</mat-label>
+            <input matInput placeholder="Ex. Esmeraldas" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Pais</mat-label>
+            <input matInput placeholder="Ex. Ecuador" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Telefono</mat-label>
+            <span matPrefix>+593 &nbsp;</span>
+            <input type="tel" matInput placeholder="555-555-1234" />
+            <mat-icon matSuffix>mode_edit</mat-icon>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <app-details-products-cart></app-details-products-cart>
+</div>

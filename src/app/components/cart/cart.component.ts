@@ -10,15 +10,16 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
         quantity: quantity$ | async
       } as dataCart"
     >
-      {{ dataCart.total | currency }}
-      <mat-icon matBadge="{{ dataCart.quantity }}" matBadgeColor="warn">
-        shopping_cart
-      </mat-icon>
+      <a [routerLink]="['/checkcart']">
+        <mat-icon matBadge="{{ dataCart.quantity }}" matBadgeColor="warn">
+          shopping_cart
+        </mat-icon>
+      </a>
     </ng-container>
   `,
+  styleUrls: ['../navbar/navbar.component.scss']
 })
 export class CartComponent implements OnInit {
-  
   quantity$ = this.shoppingCartSvc.quantityAction$;
   total$ = this.shoppingCartSvc.totalAction$;
   cart$ = this.shoppingCartSvc.cartAction$;

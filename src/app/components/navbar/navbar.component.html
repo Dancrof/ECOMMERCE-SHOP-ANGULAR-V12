@@ -6,9 +6,17 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>
-    My App
-  </span>
+  <a [routerLink]="['/']">
+    <span>
+      My App
+    </span>
+  </a>
+  <span class="example-spacer"></span>
+  <a [routerLink]="['/catalogo']">
+    <span>
+      Catalogo
+    </span>
+  </a>
   <span class="example-spacer"></span>
   <button
     mat-icon-button
