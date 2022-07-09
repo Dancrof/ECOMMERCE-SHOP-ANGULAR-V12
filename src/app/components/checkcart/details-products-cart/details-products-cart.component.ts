@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionInterface } from 'src/app/interfaces/transaction.interface';
+import { ProductInterface } from 'src/app/interfaces/product.interface';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-details-products-cart',
@@ -8,23 +9,18 @@ import { TransactionInterface } from 'src/app/interfaces/transaction.interface';
 })
 export class DetailsProductsCartComponent implements OnInit {
 
-  displayedColumns = ['item', 'cost'];
-  transactions: TransactionInterface[] = [
-    {item: 'Beach ball', cost: 4},
-    {item: 'Towel', cost: 5},
-    {item: 'Frisbee', cost: 2},
-    {item: 'Sunscreen', cost: 4},
-    {item: 'Cooler', cost: 25},
-    {item: 'Swim suit', cost: 15},
-  ];
+  subTotal$ = this.shoppingCartSvc.subTotalAction$;
+  iva$ = this.shoppingCartSvc.ivaAction$;
+  Total$ = this.shoppingCartSvc.totalAction$;
+  cart$ = this.shoppingCartSvc.cartAction$;
+  
 
-  constructor() { }
+  displayedColumns = ['id', 'name', 'quantity','price'];
+  dataSource = this.cart$;
+  
+  constructor(private shoppingCartSvc: ShoppingCartService) { }
 
   ngOnInit(): void {
   }
 
-  /** Gets the total cost of all transactions. */
-  getTotalCost() {
-    return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
-  }
 }

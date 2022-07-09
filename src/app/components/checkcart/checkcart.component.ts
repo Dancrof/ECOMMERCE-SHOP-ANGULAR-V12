@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckcartComponent implements OnInit {
 
+  model = {
+    firstName: '',
+    lastName: '',
+    adress: '',
+    city: '',
+    country: '',
+    phone: '',
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+  ngSubmit(): void {
+    console.log('guardar');
+  }
 }

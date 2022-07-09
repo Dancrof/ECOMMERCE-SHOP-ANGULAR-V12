@@ -1,18 +1,25 @@
 <div class="container">
-    <form class="example-form">
-        <h2>Datos de Envio</h2>
+  <form class="example-form" (ngSubmit)="ngSubmit()" #checkoutForm="ngForm">
+    <h2>Datos de Envio</h2>
     <table class="example-full-width" cellspacing="0">
       <tr>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nombres Completos</mat-label>
-            <input matInput />
+            <input
+              matInput
+              [(ngModel)]="model.firstName"
+              name="firstName"
+              #firstName="ngModel"
+              required
+            />
+            <mat-error *ngIf=""> Este campo es requerido </mat-error>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Apellidos Completos</mat-label>
-            <input matInput />
+            <input matInput required />
           </mat-form-field>
         </td>
       </tr>
@@ -21,9 +28,17 @@
     <p>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Direccion</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St"></textarea
+        <textarea
+          matInput
+          placeholder="Ex. 100 Main St"
+          [(ngModel)]="model.adress"
+          name="adress"
+          #adress="ngModel"
+          required
         >
+        </textarea>
       </mat-form-field>
+      <mat-error *ngIf=""> Este campo es requerido </mat-error>
     </p>
 
     <table class="example-full-width" cellspacing="0">
@@ -31,25 +46,57 @@
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Ciudad</mat-label>
-            <input matInput placeholder="Ex. Esmeraldas" />
+            <input
+              matInput
+              placeholder="Ex. Esmeraldas"
+              [(ngModel)]="model.city"
+              name="city"
+              #city="ngModel"
+              required
+            />
+            <mat-error *ngIf=""> Este campo es requerido </mat-error>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Pais</mat-label>
-            <input matInput placeholder="Ex. Ecuador" />
+            <input
+              matInput
+              placeholder="Ex. Ecuador"
+              [(ngModel)]="model.country"
+              name="country"
+              #country="ngModel"
+              required
+            />
+            <mat-error *ngIf=""> Este campo es requerido </mat-error>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Telefono</mat-label>
             <span matPrefix>+593 &nbsp;</span>
-            <input type="tel" matInput placeholder="555-555-1234" />
+            <input
+              type="tel"
+              matInput
+              placeholder="555-555-1234"
+              [(ngModel)]="model.phone"
+              name="phone"
+              #phone="ngModel"
+              required
+            />
             <mat-icon matSuffix>mode_edit</mat-icon>
+            <mat-error *ngIf=""> Este campo es requerido </mat-error>
           </mat-form-field>
         </td>
       </tr>
     </table>
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="checkoutForm.form.invalid"
+    >
+      Realizar Pago
+    </button>
   </form>
 
   <app-details-products-cart></app-details-products-cart>
