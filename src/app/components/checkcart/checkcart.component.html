@@ -1,8 +1,8 @@
 <div class="container">
-  <form class="example-form" (ngSubmit)="ngSubmit()" #checkoutForm="ngForm">
+  <form class="example-form" #checkoutForm="ngForm">
     <h2>Datos de Envio</h2>
     <table class="example-full-width" cellspacing="0">
-      <tr>
+      <tr class="flex__wraper">
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nombres Completos</mat-label>
@@ -13,14 +13,34 @@
               #firstName="ngModel"
               required
             />
-            <mat-error *ngIf=""> Este campo es requerido </mat-error>
+            <mat-error *ngIf="firstName.invalid || firstName.pristine">
+              Este campo es requerido
+            </mat-error>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Apellidos Completos</mat-label>
-            <input matInput required />
+            <input
+              matInput
+              [(ngModel)]="model.lastName"
+              name="lastName"
+              #lastName="ngModel"
+              required
+            />
+            <mat-error *ngIf="lastName.invalid || lastName.pristine">
+              Este campo es requerido
+            </mat-error>
           </mat-form-field>
+        </td>
+        <td>
+          <div class="form__ratio_delivey">
+            <mat-radio-group aria-label="Select an option">
+              <p>Estrega a domicilio?</p>
+              <mat-radio-button value="1">No</mat-radio-button>
+              <mat-radio-button value="2">Si</mat-radio-button>
+            </mat-radio-group>
+          </div>
         </td>
       </tr>
     </table>
@@ -37,8 +57,10 @@
           required
         >
         </textarea>
+        <mat-error *ngIf="adress.invalid || adress.pristine">
+          Este campo es requerido
+        </mat-error>
       </mat-form-field>
-      <mat-error *ngIf=""> Este campo es requerido </mat-error>
     </p>
 
     <table class="example-full-width" cellspacing="0">
@@ -54,7 +76,9 @@
               #city="ngModel"
               required
             />
-            <mat-error *ngIf=""> Este campo es requerido </mat-error>
+            <mat-error *ngIf="city.invalid || city.pristine">
+              Este campo es requerido
+            </mat-error>
           </mat-form-field>
         </td>
         <td>
@@ -68,7 +92,28 @@
               #country="ngModel"
               required
             />
-            <mat-error *ngIf=""> Este campo es requerido </mat-error>
+            <mat-error *ngIf="country.invalid || country.pristine">
+              Este campo es requerido
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Store</mat-label>
+            <mat-select 
+            placeholder="Ex. Ecuador"
+            [(ngModel)]="model.store"
+            name="store"
+            #store="ngModel"
+            required
+            >
+              <mat-option *ngFor="let store of stores" [value]="store.id">
+                {{ store.name }} - {{ store.address }} - {{ store.city }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="store.invalid || store.pristine">
+              Este campo es requerido
+            </mat-error>
           </mat-form-field>
         </td>
         <td>
@@ -85,18 +130,24 @@
               required
             />
             <mat-icon matSuffix>mode_edit</mat-icon>
-            <mat-error *ngIf=""> Este campo es requerido </mat-error>
+            <mat-error *ngIf="phone.invalid || phone.pristine">
+              Este campo es requerido
+            </mat-error>
           </mat-form-field>
         </td>
       </tr>
     </table>
-    <button
-      mat-flat-button
-      color="primary"
-      [disabled]="checkoutForm.form.invalid"
-    >
-      Realizar Pago
-    </button>
+    <div>
+      <button
+        mat-flat-button
+        color="primary"
+        [disabled]="checkoutForm.form.invalid"
+        type="submit"
+        (click)="onSubmit()"
+      >
+        Realizar Pago
+      </button>
+    </div>
   </form>
 
   <app-details-products-cart></app-details-products-cart>

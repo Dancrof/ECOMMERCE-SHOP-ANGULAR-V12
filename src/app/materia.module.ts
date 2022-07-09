@@ -6,6 +6,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import {MatTableModule} from '@angular/material/table';
         MatButtonModule,
         MatBadgeModule,
         MatInputModule,
-        MatTableModule
+        MatTableModule,
+        MatSelectModule,
+        MatRadioModule
     ],
 })
 export class MaterialModule { }

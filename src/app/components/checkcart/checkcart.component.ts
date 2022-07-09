@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { StoreInterface } from 'src/app/interfaces/store.interface';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-checkcart',
@@ -14,14 +17,25 @@ export class CheckcartComponent implements OnInit {
     city: '',
     country: '',
     phone: '',
+    store: ''
   }
 
-  constructor() { }
+  stores: StoreInterface[] = [];
+  constructor(private dataSvc: DataService) { }
 
   ngOnInit(): void {
+    this.getStores();
   }
   
-  ngSubmit(): void {
+  onSubmit(): void {
     console.log('guardar');
+  }
+
+  private getStores(): void {
+    this.dataSvc.getStores()
+    .pipe(tap(
+      (store: StoreInterface[]) => this.stores = store
+    ))
+    .subscribe();
   }
 }

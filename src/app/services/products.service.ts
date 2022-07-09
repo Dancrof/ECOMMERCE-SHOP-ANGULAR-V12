@@ -13,7 +13,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<any>{
+  //solicitamos a la url del servidor la lista de productos
+  getProducts(): Observable<ProductInterface[]>{
     return this.http.get<ProductInterface[]>(`${this.apiUrl}/products`);
   }
 }
