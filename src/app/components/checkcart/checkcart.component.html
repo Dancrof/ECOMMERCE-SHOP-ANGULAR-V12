@@ -37,8 +37,16 @@
           <div class="form__ratio_delivey">
             <mat-radio-group aria-label="Select an option">
               <p>Estrega a domicilio?</p>
-              <mat-radio-button value="1">No</mat-radio-button>
-              <mat-radio-button value="2">Si</mat-radio-button>
+              <mat-radio-button
+                (change)="onCheckDelivery(false)"
+                value="No"
+                checked
+              >
+                No
+              </mat-radio-button>
+              <mat-radio-button (change)="onCheckDelivery(true)" value="Si">
+                Si
+              </mat-radio-button>
             </mat-radio-group>
           </div>
         </td>
@@ -46,76 +54,82 @@
     </table>
 
     <p>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Direccion</mat-label>
-        <textarea
-          matInput
-          placeholder="Ex. 100 Main St"
-          [(ngModel)]="model.adress"
-          name="adress"
-          #adress="ngModel"
-          required
-        >
-        </textarea>
-        <mat-error *ngIf="adress.invalid || adress.pristine">
-          Este campo es requerido
-        </mat-error>
-      </mat-form-field>
+      <ng-container *ngIf="isDelivery">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Direccion</mat-label>
+          <textarea
+            matInput
+            placeholder="Ex. 100 Main St"
+            [(ngModel)]="model.adress"
+            name="adress"
+            #adress="ngModel"
+            required
+          >
+          </textarea>
+          <mat-error *ngIf="adress.invalid || adress.pristine">
+            Este campo es requerido
+          </mat-error>
+        </mat-form-field>
+      </ng-container>
     </p>
 
     <table class="example-full-width" cellspacing="0">
       <tr class="flex__wraper">
-        <td>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Ciudad</mat-label>
-            <input
-              matInput
-              placeholder="Ex. Esmeraldas"
-              [(ngModel)]="model.city"
-              name="city"
-              #city="ngModel"
-              required
-            />
-            <mat-error *ngIf="city.invalid || city.pristine">
-              Este campo es requerido
-            </mat-error>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Pais</mat-label>
-            <input
-              matInput
-              placeholder="Ex. Ecuador"
-              [(ngModel)]="model.country"
-              name="country"
-              #country="ngModel"
-              required
-            />
-            <mat-error *ngIf="country.invalid || country.pristine">
-              Este campo es requerido
-            </mat-error>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Store</mat-label>
-            <mat-select 
-            placeholder="Ex. Ecuador"
-            [(ngModel)]="model.store"
-            name="store"
-            #store="ngModel"
-            required
-            >
-              <mat-option *ngFor="let store of stores" [value]="store.id">
-                {{ store.name }} - {{ store.address }} - {{ store.city }}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="store.invalid || store.pristine">
-              Este campo es requerido
-            </mat-error>
-          </mat-form-field>
-        </td>
+        <ng-container *ngIf="isDelivery; else showStores">
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Ciudad</mat-label>
+              <input
+                matInput
+                placeholder="Ex. Esmeraldas"
+                [(ngModel)]="model.city"
+                name="city"
+                #city="ngModel"
+                required
+              />
+              <mat-error *ngIf="city.invalid || city.pristine">
+                Este campo es requerido
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Pais</mat-label>
+              <input
+                matInput
+                placeholder="Ex. Ecuador"
+                [(ngModel)]="model.country"
+                name="country"
+                #country="ngModel"
+                required
+              />
+              <mat-error *ngIf="country.invalid || country.pristine">
+                Este campo es requerido
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-template #showStores>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Store</mat-label>
+              <mat-select
+                placeholder="Ex. Ecuador"
+                [(ngModel)]="model.store"
+                name="store"
+                #store="ngModel"
+                required
+              >
+                <mat-option *ngFor="let store of stores" [value]="store.address">
+                  {{ store.name }} - {{ store.address }} - {{ store.city }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="store.invalid || store.pristine">
+                Este campo es requerido
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </ng-template>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Telefono</mat-label>
@@ -143,7 +157,7 @@
         color="primary"
         [disabled]="checkoutForm.form.invalid"
         type="submit"
-        (click)="onSubmit()"
+        (click)="onSubmit(checkoutForm)"
       >
         Realizar Pago
       </button>
