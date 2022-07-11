@@ -1,10 +1,10 @@
 export interface OrderInterface {
-    id?: number;
-    name: string;
-    date: string;
-    shippingAddress: string;
-    city: string;
-    pickup: boolean;
+  name?: string;
+  shippingAddress: string;
+  city: string;
+  date: string;
+  isDelivery: boolean;
+  id: number;
 }
 
 /**

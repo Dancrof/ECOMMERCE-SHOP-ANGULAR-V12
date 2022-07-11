@@ -1,14 +1,13 @@
 export interface DetailOrderInterface {
-    id?: number;
-    orderId: number;
-    quantity: number;
+    productId: number;
     productName: string;
+    quantity: number;
 }
 
 export interface DetailsInterface {
 
     details: DetailOrderInterface[];
-    orderId?: number;
+    orderId: number;
 }
 
 /**

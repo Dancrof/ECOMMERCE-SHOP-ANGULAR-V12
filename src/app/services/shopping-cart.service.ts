@@ -40,6 +40,16 @@ export class ShoppingCartService {
     this.ivaProducts();
   }
 
+  //Metodo para resetear el carrito una ves hecha la compra
+  resetShoppingCart(): void {
+    this.cartSubject.next([]);
+    this.totalSubject.next(0);
+    this.quantitySubject.next(0);
+    this.ivaSubject.next(0);
+    this.subTotalSubject.next(0);
+    this.products = [];
+  }
+
   //Metodo para agregar un nuevo producto al carrito
   private addProductToCard(product: ProductInterface): void {
     

@@ -6,7 +6,6 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   template: `
     <ng-container
       *ngIf="{
-        total: total$ | async,
         quantity: quantity$ | async
       } as dataCart"
     >
@@ -21,8 +20,6 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class CartComponent implements OnInit {
   quantity$ = this.shoppingCartSvc.quantityAction$;
-  total$ = this.shoppingCartSvc.totalAction$;
-  cart$ = this.shoppingCartSvc.cartAction$;
 
   constructor(private shoppingCartSvc: ShoppingCartService) {}
 

@@ -35,7 +35,6 @@ export class CatalogueComponent implements OnInit {
 
   //Pasandole un producto al servicio con el metodo publico
   addToCart(product: ProductInterface): void {
-    console.log(product);
     this.shoppingCartSvc.publicUpdateCart(product);
   }
 }

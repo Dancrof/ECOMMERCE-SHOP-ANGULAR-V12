@@ -120,7 +120,7 @@
                 #store="ngModel"
                 required
               >
-                <mat-option *ngFor="let store of stores" [value]="store.address">
+                <mat-option *ngFor="let store of stores" [value]="store.id">
                   {{ store.name }} - {{ store.address }} - {{ store.city }}
                 </mat-option>
               </mat-select>

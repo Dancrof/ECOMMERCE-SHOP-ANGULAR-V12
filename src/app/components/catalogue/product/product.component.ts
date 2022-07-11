@@ -11,6 +11,7 @@ export class ProductComponent implements OnInit {
   @Input() product!: ProductInterface;
   //creando el evento personalizado para el envio del producto al carrito
   @Output() addCartProduct = new EventEmitter<ProductInterface>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,5 +21,4 @@ export class ProductComponent implements OnInit {
   addCart(): void{
     this.addCartProduct.emit(this.product);
   }
-
 }
