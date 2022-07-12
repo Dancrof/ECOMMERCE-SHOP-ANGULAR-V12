@@ -57,7 +57,7 @@
       "price": 45,
       "description": "Learn the essentials and more of TypeScript, a popular superset of the JavaScript language that adds support for static typing. TypeScript combines the typing features of C# or Java.",
       "categoryId": 1,
-      "stock": 0
+      "stock": 9
     },
     {
       "id": 2,
@@ -65,7 +65,7 @@
       "price": 5,
       "description": "En Hackeando del cerebro de tus compradores, Corti nos revela cómo muchas compañías crean productos digitales o procesos de venta capaces de conectar con la psicología del comprador.",
       "categoryId": 1,
-      "stock": 3
+      "stock": 8
     },
     {
       "id": 3,
@@ -73,7 +73,7 @@
       "price": 17,
       "description": "In this book, the reader will be able to focus on one concept of Angular in deep.",
       "categoryId": 1,
-      "stock": 3
+      "stock": 9
     },
     {
       "id": 4,
@@ -128,203 +128,24 @@
     {
       "firstName": "Bryan Andres ",
       "lastName": "Caicedo Jimenez",
-      "phone": "+593 993460950",
-      "store": 5,
-      "date": "10/7/2022",
+      "phone": "9999999",
+      "store": 1,
+      "date": "11/7/2022",
       "isDelivery": false,
-      "name": "",
       "shippingAddress": "",
       "city": "",
       "id": 2
     },
     {
-      "firstName": "Bryan Andres ",
-      "lastName": "Caicedo Jimenez",
+      "firstName": "Antonio",
+      "lastName": "Caicedo Preciado",
       "phone": "+593 993460950",
-      "store": 4,
-      "date": "10/7/2022",
+      "store": 2,
+      "date": "11/7/2022",
       "isDelivery": false,
       "shippingAddress": "",
       "city": "",
       "id": 3
-    },
-    {
-      "firstName": "Jordan miguel",
-      "lastName": "Caicedo Jimenez",
-      "phone": "+593 993460950",
-      "store": 2,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 4
-    },
-    {
-      "firstName": "Melodi carolina",
-      "lastName": "Caicedo Jimenez",
-      "phone": "+593 993460950",
-      "store": 2,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 5
-    },
-    {
-      "firstName": "Antonio",
-      "lastName": "Caicedo Preciado",
-      "phone": "+593 993460950",
-      "adress": "Salinas y gustabo becerra",
-      "city": "Esmeraldas",
-      "country": "Ecuador",
-      "date": "10/7/2022",
-      "isDelivery": true,
-      "shippingAddress": "Salinas y gustabo becerra",
-      "id": 6
-    },
-    {
-      "firstName": "pilar",
-      "lastName": "Caicedo Jimenez",
-      "phone": "+593 993460950",
-      "store": 4,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 7
-    },
-    {
-      "firstName": "Bryan Andres ",
-      "lastName": "Caicedo Jimenez",
-      "phone": "+593 993460950",
-      "store": 2,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 8
-    },
-    {
-      "firstName": "toro",
-      "lastName": "capelo",
-      "phone": "9999999",
-      "store": 1,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 9
-    },
-    {
-      "firstName": "carlita",
-      "lastName": "pedriña",
-      "phone": "9999999",
-      "store": 3,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 10
-    },
-    {
-      "firstName": "Jordan miguel",
-      "lastName": "Caicedo Preciado",
-      "phone": "+593 993460950",
-      "store": 1,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 11
-    },
-    {
-      "firstName": "Bryan Andres ",
-      "lastName": "Caicedo Preciado",
-      "phone": "+593 993460950",
-      "adress": "slinatri",
-      "city": "Esmeraldas",
-      "country": "Ecuador",
-      "date": "10/7/2022",
-      "isDelivery": true,
-      "shippingAddress": "slinatri",
-      "id": 12
-    },
-    {
-      "firstName": "pilar",
-      "lastName": "marqeuz",
-      "phone": "9999999",
-      "store": 1,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 13
-    },
-    {
-      "firstName": "sad",
-      "lastName": "capelo",
-      "phone": "9999999",
-      "store": 3,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 14
-    },
-    {
-      "firstName": "Antonio",
-      "lastName": "pedriña",
-      "phone": "+593 993460950",
-      "store": 1,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 15
-    },
-    {
-      "firstName": "sad",
-      "lastName": "Caicedo Preciado",
-      "phone": "9999999",
-      "store": 4,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 16
-    },
-    {
-      "firstName": "sad",
-      "lastName": "Caicedo Preciado",
-      "phone": "+593 993460950",
-      "store": 5,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 17
-    },
-    {
-      "firstName": "test1",
-      "lastName": "test",
-      "phone": "+593 993460950",
-      "store": 1,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 18
-    },
-    {
-      "firstName": "test1",
-      "lastName": "test",
-      "phone": "+593 993460950",
-      "store": 1,
-      "date": "10/7/2022",
-      "isDelivery": false,
-      "shippingAddress": "",
-      "city": "",
-      "id": 19
     }
   ],
   "detailsOrders": [
@@ -345,11 +166,6 @@
           "productId": 2,
           "quantity": 1,
           "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
         }
       ],
       "orderId": 2,
@@ -358,262 +174,18 @@
     {
       "details": [
         {
-          "productId": 5,
+          "productId": 2,
           "quantity": 1,
-          "productName": "GoPro HERO9 Black - Waterproof Action Camera with Front LCD"
+          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
         },
         {
-          "productId": 6,
+          "productId": 3,
           "quantity": 1,
-          "productName": "CL3 Rated High-Speed 4K HDMI Cable - 6 Feet"
-        },
-        {
-          "productId": 4,
-          "quantity": 1,
-          "productName": "SanDisk 128GB Ultra MicroSDXC UHS-I Memory Card with Adapter"
+          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
         }
       ],
       "orderId": 3,
       "id": 3
-    },
-    {
-      "details": [
-        {
-          "productId": 1,
-          "quantity": 1,
-          "productName": "Essential TypeScript 4: From Beginner to Pro"
-        },
-        {
-          "productId": 4,
-          "quantity": 1,
-          "productName": "SanDisk 128GB Ultra MicroSDXC UHS-I Memory Card with Adapter"
-        },
-        {
-          "productId": 8,
-          "quantity": 1,
-          "productName": "External CD Drive USB 3.0 Portable CD DVD +/-RW Drive DVD/CD ROM"
-        }
-      ],
-      "orderId": 4,
-      "id": 4
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 5,
-          "quantity": 1,
-          "productName": "GoPro HERO9 Black - Waterproof Action Camera with Front LCD"
-        },
-        {
-          "productId": 7,
-          "quantity": 1,
-          "productName": "Logitech MK270 Wireless Keyboard and Mouse Combo"
-        }
-      ],
-      "orderId": 5,
-      "id": 5
-    },
-    {
-      "details": [],
-      "orderId": 6,
-      "id": 6
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 7,
-      "id": 7
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 8,
-      "id": 8
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 10,
-      "id": 9
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 11,
-      "id": 10
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 12,
-      "id": 11
-    },
-    {
-      "details": [
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        },
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        }
-      ],
-      "orderId": 13,
-      "id": 12
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 14,
-      "id": 13
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 15,
-      "id": 14
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 16,
-      "id": 15
-    },
-    {
-      "details": [
-        {
-          "productId": 5,
-          "quantity": 1,
-          "productName": "GoPro HERO9 Black - Waterproof Action Camera with Front LCD"
-        },
-        {
-          "productId": 6,
-          "quantity": 1,
-          "productName": "CL3 Rated High-Speed 4K HDMI Cable - 6 Feet"
-        }
-      ],
-      "orderId": 17,
-      "id": 16
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 18,
-      "id": 17
-    },
-    {
-      "details": [
-        {
-          "productId": 2,
-          "quantity": 1,
-          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth"
-        },
-        {
-          "productId": 3,
-          "quantity": 1,
-          "productName": "Angular Routing: Learn To Create client-side and SPA with Routing and Navigation"
-        }
-      ],
-      "orderId": 19,
-      "id": 18
     }
   ]
 }

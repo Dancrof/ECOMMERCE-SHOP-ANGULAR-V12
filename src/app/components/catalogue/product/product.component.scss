@@ -10,12 +10,23 @@
   overflow: hidden;
 }
 .example-card {
-  max-width: 300px;
-}
+  max-width: 250px;
 
-.example-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
-  background-size: cover;
+  .more__description{
+    cursor: pointer;
+    padding: 0.3rem;
+    max-width: 120px;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    border-radius: 4px 4px 4px 4px;
+    font-weight: 500;
+  }
+  .more__description:hover{
+    background: rgb(160, 160, 160);
+    color: #fff;
+  }
 }
 .flex__action {
   display: flex;
@@ -28,7 +39,7 @@
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   box-orient: vertical;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
 }

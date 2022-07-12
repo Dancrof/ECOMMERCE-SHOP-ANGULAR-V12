@@ -58,7 +58,7 @@ export class ShoppingCartService {
     if(groupProductCart){
       
       groupProductCart.quantity += 1;
-   
+      
     } else {
       
       this.products.push({...product, quantity:1})

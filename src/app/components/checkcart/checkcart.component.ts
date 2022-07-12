@@ -84,7 +84,7 @@ export class CheckcartComponent implements OnInit {
   private getCurrencyDay(): string{
     return new Date().toLocaleDateString()
   }
-
+  //preparamos los tados que van a in en lod detalles del orden
   private prepareDetailsOrder(): DetailOrderInterface[]{
     const details: DetailOrderInterface[] = [];
     this.cart.forEach((product: ProductInterface) => {
@@ -112,6 +112,7 @@ export class CheckcartComponent implements OnInit {
     .subscribe();
   }
   
+  //si el carrito de compras esta vacio lo redirije a la seccion catalogo
   private checkItemsCart(): void {
     this.shoppingCartSvc.cartAction$.pipe(
       tap(

@@ -29,7 +29,11 @@ export class CatalogueComponent implements OnInit {
     // Estoy llamando los productos y asignandolos a la propiedad product
     this.productSvc
       .getProducts()
-      .pipe(tap((product: ProductInterface[]) => (this.listProduct = product)))
+      .pipe(
+        tap(
+          (product: ProductInterface[]) => (this.listProduct = product)
+          )
+        )
       .subscribe();
   }
 
