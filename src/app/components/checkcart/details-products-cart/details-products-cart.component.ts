@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
+import { ProductsService } from 'src/app/services/products.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
-
+import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-details-products-cart',
   templateUrl: './details-products-cart.component.html',
@@ -15,12 +16,18 @@ export class DetailsProductsCartComponent implements OnInit {
   cart$ = this.shoppingCartSvc.cartAction$;
   
 
-  displayedColumns = ['id', 'name', 'quantity','price'];
+  displayedColumns = ['id', 'name', 'quantity','price', 'delete'];
   dataSource = this.cart$;
   
-  constructor(private shoppingCartSvc: ShoppingCartService) { }
+  constructor(
+    private shoppingCartSvc: ShoppingCartService,
+  ) { }
 
   ngOnInit(): void {
+
   }
 
+  SumRestSQuantity(product: ProductInterface): void{
+    this.shoppingCartSvc.publicUpdateCart(product)
+  }
 }

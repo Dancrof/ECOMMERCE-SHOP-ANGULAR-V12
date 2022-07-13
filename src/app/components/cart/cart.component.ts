@@ -9,14 +9,17 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
         quantity: quantity$ | async
       } as dataCart"
     >
-      <a [routerLink]="['/checkcart']">
-        <mat-icon matBadge="{{ dataCart.quantity }}" matBadgeColor="warn">
-          shopping_cart
-        </mat-icon>
-      </a>
+      <mat-icon
+        class="cart__icon"
+        [routerLink]="['/checkcart']"
+        matBadge="{{ dataCart.quantity }}"
+        matBadgeColor="warn"
+      >
+        shopping_cart
+      </mat-icon>
     </ng-container>
   `,
-  styleUrls: ['../navbar/navbar.component.scss']
+  styleUrls: ['../navbar/navbar.component.scss'],
 })
 export class CartComponent implements OnInit {
   quantity$ = this.shoppingCartSvc.quantityAction$;

@@ -9,14 +9,18 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>producto</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        <th class="product_fila" mat-header-cell *matHeaderCellDef>producto</th>
+        <td class="product_fila" mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
 
       <!-- quantity Column -->
       <ng-container matColumnDef="quantity">
         <th mat-header-cell *matHeaderCellDef>cantidad</th>
-        <td mat-cell *matCellDef="let element">X {{ element.quantity }}</td>
+        <td mat-cell *matCellDef="let element">
+         <span class="aritmetic__quantity"> - </span> 
+         {{ element.quantity }}
+         <span class="aritmetic__quantity"> + </span>
+        </td>
       </ng-container>
 
       <!-- price Column -->
@@ -24,6 +28,13 @@
         <th mat-header-cell *matHeaderCellDef>precio</th>
         <td mat-cell *matCellDef="let element">
           {{ element.price | currency }}
+        </td>
+      </ng-container>
+      <!-- price Column -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <span class="delete__product__cart">Quitar</span>
         </td>
       </ng-container>
 
