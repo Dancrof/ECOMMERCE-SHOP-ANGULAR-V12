@@ -3,6 +3,8 @@ div.container__detail__cart__generla{
   display: grid;
   grid-template-rows: 400px 1fr;
   grid-row-gap: 2rem;
+  background: var(--color-component-bg);
+  border-radius: 4px;
   
   .example-container {
     min-width: 700px;

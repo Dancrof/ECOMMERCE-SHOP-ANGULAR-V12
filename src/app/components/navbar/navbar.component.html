@@ -4,17 +4,11 @@
     class="example-icon"
     aria-label="Example icon-button with menu icon"
   >
-    <mat-icon>menu</mat-icon>
+    <mat-icon (click)="activeToggleMenu()">menu</mat-icon>
   </button>
   <a [routerLink]="['/']">
     <span>
-      My App
-    </span>
-  </a>
-  <span class="example-spacer"></span>
-  <a [routerLink]="['/catalogo']">
-    <span>
-      Catalogo
+      RealyShop
     </span>
   </a>
   <span class="example-spacer"></span>

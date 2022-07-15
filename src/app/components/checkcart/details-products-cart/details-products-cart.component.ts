@@ -19,6 +19,7 @@ export class DetailsProductsCartComponent implements OnInit {
   displayedColumns = ['id', 'name', 'quantity','price', 'delete'];
   dataSource = this.cart$;
   
+
   constructor(
     private shoppingCartSvc: ShoppingCartService,
   ) { }
@@ -27,7 +28,17 @@ export class DetailsProductsCartComponent implements OnInit {
 
   }
 
-  SumRestSQuantity(product: ProductInterface): void{
-    this.shoppingCartSvc.publicUpdateCart(product)
+  deleteProductCart(idProductCart: ProductInterface): void{
+    this.cart$.pipe(
+      tap(ProductCart => {
+        
+        ProductCart.splice(1,0)
+        /* const groupProductCart = ProductCart.find(({ id }) => id === idProductCart.id);
+        console.log(groupProductCart)
+        ProductCart.splice(ProductCart.length, 1)
+        //idProductCart.splice(idProductCart) */
+          
+      })
+    ).subscribe();
   }
 }

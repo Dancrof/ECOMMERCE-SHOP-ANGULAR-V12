@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  URL_SERVER: 'http://localhost:3000'
+  //Url del servidor
+  URL_SERVER: 'http://localhost:3000',
+  // Iva del 12% que se le aplica a la compra
+  IVA_ORDER: 0.12
 };
 
 /*

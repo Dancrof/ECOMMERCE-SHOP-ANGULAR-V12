@@ -34,7 +34,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <span class="delete__product__cart">Quitar</span>
+          <span class="delete__product__cart" (click)="deleteProductCart(element)">Quitar</span>
         </td>
       </ng-container>
 

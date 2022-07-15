@@ -76,11 +76,11 @@ export class CheckcartComponent implements OnInit {
     ))
     .subscribe();
   }
-
+  //se oculta o mustras inputs adicionales si compra es a domicilio
   onCheckDelivery(delivery: boolean): void{
     this.isDelivery = delivery;
   }
-
+  //se asigna la fecha del dia que se iso la orden
   private getCurrencyDay(): string{
     return new Date().toLocaleDateString()
   }

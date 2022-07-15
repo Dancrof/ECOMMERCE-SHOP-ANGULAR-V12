@@ -1,4 +1,23 @@
 {
+  "Users": [
+    {
+      "id": 1,
+      "name": "Bryan",
+      "email": "bryan@.me",
+      "password": "123456",
+      "rolIdFk": 1
+    }
+  ],
+  "Roles": [
+    {
+      "id": 1,
+      "rol": "Admin"
+    },
+    {
+      "id": 2,
+      "rol": "Cliente"
+    }
+  ],
   "stores": [
     {
       "id": 1,
