@@ -1,5 +1,5 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { NavbarService } from 'src/app/services/navbar.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,27 +7,24 @@ import { Renderer2 } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  //Reciviendo la referencia del componente padre
-  @Input() reftogglemenu!: HTMLUListElement;
+  //Reciviendo la referencia del componente menu
+  @Input() reftogglemenu!: HTMLDivElement;
 
-
-  private isMode: boolean = true
-
-  constructor(private render2: Renderer2) { }
+  constructor(
+    private navbarSvc: NavbarService,
+    private render2: Renderer2
+  ) { }
 
   ngOnInit(): void {
   }
 
   //ocultar o mostrar el menu del navbar
   activeToggleMenu(): void{
-    if(this.isMode){
-      this.render2.setStyle(this.reftogglemenu, "width", "250px");
-      this.render2.setStyle(this.reftogglemenu, "transform", "translateX(0)");
-      this.isMode = !this.isMode
+
+    if(this.reftogglemenu.className != 'toggle__menu active'){
+      this.render2.addClass(this.reftogglemenu, 'active')
     } else {
-      this.render2.setStyle(this.reftogglemenu, "transform", "translateX(-150px)");
-      this.render2.setStyle(this.reftogglemenu, "width", "0");
-      this.isMode = !this.isMode
+      this.render2.removeClass(this.reftogglemenu, 'active')
     }
   }
 }

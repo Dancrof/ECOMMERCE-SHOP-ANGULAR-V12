@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { async } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProductInterface } from '../interfaces/product.interface';
@@ -32,20 +31,33 @@ export class ShoppingCartService {
     return this.subTotalSubject.asObservable();
   }
 
-  //Metodo publico para no llamar a los metodos privados directamente
-  publicUpdateCart(product: ProductInterface): void {
+  //Metodo publico para agregar un producto nuevo al carrito
+  publicUpdateAddCart(product: ProductInterface): void {
     this.addProductToCard(product);
     this.quantityProducts();
-    this.subTotalProducts(0);
+    this.subTotalProducts();
     this.ivaProducts();
   }
 
-  //Metodo publico para no llamar a los metodos privados directamente
-  publicDeleteCart(product: ProductInterface): void {
-    this.deleteProductToCard(product);
+  //Metodo publico para sumar cantidad de de productos del carrito
+  publicUpdateSumCart(product: ProductInterface): void {
+    this.sumProductToCard(product);
     this.quantityProducts();
-    this.subTotalProducts(0);
+    this.subTotalProducts();
     this.ivaProducts();
+  }
+
+  //Metodo publico para restar cantidad de de productos del carrito
+  publicUpdateRestCart(product: ProductInterface): void {
+    this.restQuantituProductToCard(product);
+    this.quantityProducts();
+    this.subTotalProducts();
+    this.ivaProducts();
+  }
+
+  //Metodo publico para eliminar productos del carrito
+  publicDeleteCart(product: ProductInterface): void {
+    this.DeleteProductToCard(product)
   }
 
   //Metodo para resetear el carrito una ves hecha la compra
@@ -58,7 +70,7 @@ export class ShoppingCartService {
     this.products = [];
   }
 
-  //Metodo para agregar un nuevo producto al carrito
+  //Metodo para agregar aumentar un nuevo producto al carrito
   private addProductToCard(product: ProductInterface): void {
     const groupProductCart = this.products.find(({ id }) => id === product.id);
 
@@ -71,12 +83,43 @@ export class ShoppingCartService {
     this.cartSubject.next(this.products);
   }
 
-  //Metodo para eliminar un producto al carrito
-  private deleteProductToCard(product: ProductInterface): void {
-    //const groupProductCart = this.products.find(({ id }) => id === product.id);
-    
-    console.log(product)
+  //Metodo para agregar aumentar un nuevo producto al carrito
+  private sumProductToCard(product: ProductInterface): void {
+    const groupProductCart = this.products.find(({ id }) => id === product.id);
 
+    if (groupProductCart) {
+      groupProductCart.quantity += 1;
+    } else {
+      console.log('no hace nada');
+    }
+
+    this.cartSubject.next(this.products);
+  }
+
+  //Metodo para disminuir un producto al carrito
+  private restQuantituProductToCard(product: ProductInterface): void {
+    
+    const groupProductCart = this.products.find(({ id }) => id === product.id);
+
+    if (groupProductCart && groupProductCart.quantity > 1) {
+      groupProductCart.quantity -= 1;
+    } else {
+      alert('Producto minimo: 1')
+    }
+    this.cartSubject.next(this.products);
+  }
+
+  //Metodo para eliminar un producto al carrito
+  private DeleteProductToCard(product: ProductInterface): void {
+    
+    const groupProductCart = this.products.find(({ id }) => id === product.id);
+    
+    if (groupProductCart) {
+      const indexProduct = this.products.indexOf(product)
+      this.products.splice(indexProduct, 1)
+    } else {
+      alert('Este Producto no Existe en el carrito')
+    }
     this.cartSubject.next(this.products);
   }
 
@@ -90,9 +133,9 @@ export class ShoppingCartService {
   }
 
   //Metodo para calcular el iva del subtotal del productos
-  private subTotalProducts(mas: number): void {
+  private subTotalProducts(): void {
     const subtotal = this.products.reduce(
-      (acc, prod) => (acc += prod.price + mas),
+      (acc, prod) => (acc += prod.price),
       0
     );
     this.calcTotal(subtotal);

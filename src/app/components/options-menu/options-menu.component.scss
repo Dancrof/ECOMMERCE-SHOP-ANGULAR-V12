@@ -1,0 +1,19 @@
+ul{
+    margin: 0;
+
+    li{
+        text-decoration: none;
+        color: #fff;
+        margin:  0.5rem 1rem 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+    li:hover{
+        
+        color: rgb(38, 102, 212);
+        background: #fff;
+    }
+}

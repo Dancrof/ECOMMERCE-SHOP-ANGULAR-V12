@@ -2,25 +2,10 @@
     <app-navbar [reftogglemenu]="togglemenuoptions"></app-navbar>
     
     <div class="conten__router" >
-        
         <router-outlet></router-outlet>
     </div>
-    <ul #togglemenuoptions class="toggle__menu">
-        <li>
-            <mat-icon>
-                supervisor_account
-
-            </mat-icon>
-            Admin
-        </li>
-        <li [routerLink]="['/catalogo']">
-            <mat-icon>
-                shopping_basket
-            </mat-icon>
-            Catalogo
-        </li>
-        <li>opcion 3</li>
-        <li>opcion 4</li>
-    </ul>
+    <div class="toggle__menu" #togglemenuoptions>
+        <app-options-menu [hiddenMenuRef]="togglemenuoptions"></app-options-menu>
+    </div>
     <app-footer></app-footer>
 </div>

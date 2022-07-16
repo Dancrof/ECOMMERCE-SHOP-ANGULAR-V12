@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
   <button
+    (click)="activeToggleMenu()"
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
   >
-    <mat-icon (click)="activeToggleMenu()">menu</mat-icon>
+    <mat-icon>menu</mat-icon>
   </button>
   <a [routerLink]="['/']">
     <span>

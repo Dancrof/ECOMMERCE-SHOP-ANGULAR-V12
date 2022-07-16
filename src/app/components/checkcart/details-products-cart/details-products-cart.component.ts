@@ -27,18 +27,17 @@ export class DetailsProductsCartComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  //aumenta la cantidad de un producto
+  sumItem(product: ProductInterface): void {
+    this.shoppingCartSvc.publicUpdateAddCart(product)
+  }
 
-  deleteProductCart(idProductCart: ProductInterface): void{
-    this.cart$.pipe(
-      tap(ProductCart => {
-        
-        ProductCart.splice(1,0)
-        /* const groupProductCart = ProductCart.find(({ id }) => id === idProductCart.id);
-        console.log(groupProductCart)
-        ProductCart.splice(ProductCart.length, 1)
-        //idProductCart.splice(idProductCart) */
-          
-      })
-    ).subscribe();
+  //disminuye la cantidad de un producto
+  ResItem(product: ProductInterface): void {
+    this.shoppingCartSvc.publicUpdateRestCart(product)
+  }
+
+  deleteCart(product: ProductInterface): void {
+    this.shoppingCartSvc.publicDeleteCart(product)
   }
 }

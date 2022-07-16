@@ -17,9 +17,9 @@
       <ng-container matColumnDef="quantity">
         <th mat-header-cell *matHeaderCellDef>cantidad</th>
         <td mat-cell *matCellDef="let element">
-         <span class="aritmetic__quantity"> - </span> 
+         <span class="aritmetic__quantity" (click)="ResItem(element)"> - </span> 
          {{ element.quantity }}
-         <span class="aritmetic__quantity"> + </span>
+         <span class="aritmetic__quantity" (click)="sumItem(element)"> + </span>
         </td>
       </ng-container>
 
@@ -34,7 +34,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <span class="delete__product__cart" (click)="deleteProductCart(element)">Quitar</span>
+          <span class="delete__product__cart" (click)="deleteCart(element)">Quitar</span>
         </td>
       </ng-container>
 
