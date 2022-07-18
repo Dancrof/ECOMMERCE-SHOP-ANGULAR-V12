@@ -70,12 +70,12 @@ export class ShoppingCartService {
     this.products = [];
   }
 
-  //Metodo para agregar aumentar un nuevo producto al carrito
+  //Metodo para agregar un nuevo producto al carrito
   private addProductToCard(product: ProductInterface): void {
     const groupProductCart = this.products.find(({ id }) => id === product.id);
 
     if (groupProductCart) {
-      groupProductCart.quantity += 1;
+      groupProductCart.quantity = 1;
     } else {
       this.products.push({ ...product, quantity: 1 });
     }
@@ -83,14 +83,14 @@ export class ShoppingCartService {
     this.cartSubject.next(this.products);
   }
 
-  //Metodo para agregar aumentar un nuevo producto al carrito
+  //Metodo para aumentar la cantidad de un producto del carrito
   private sumProductToCard(product: ProductInterface): void {
     const groupProductCart = this.products.find(({ id }) => id === product.id);
-
-    if (groupProductCart) {
+    if (groupProductCart && groupProductCart.quantity < groupProductCart.stock) {
       groupProductCart.quantity += 1;
+      console.log(groupProductCart)
     } else {
-      console.log('no hace nada');
+      alert('La cantidad no deve ser mayor al stock del producto')
     }
 
     this.cartSubject.next(this.products);
@@ -117,9 +117,13 @@ export class ShoppingCartService {
     if (groupProductCart) {
       const indexProduct = this.products.indexOf(product)
       this.products.splice(indexProduct, 1)
+
     } else {
       alert('Este Producto no Existe en el carrito')
     }
+    this.subTotalProducts();
+    this.ivaProducts();
+
     this.cartSubject.next(this.products);
   }
 

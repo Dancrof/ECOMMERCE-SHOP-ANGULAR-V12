@@ -29,7 +29,7 @@ export class DetailsProductsCartComponent implements OnInit {
   }
   //aumenta la cantidad de un producto
   sumItem(product: ProductInterface): void {
-    this.shoppingCartSvc.publicUpdateAddCart(product)
+    this.shoppingCartSvc.publicUpdateSumCart(product)
   }
 
   //disminuye la cantidad de un producto

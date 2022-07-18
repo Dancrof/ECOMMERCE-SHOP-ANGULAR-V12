@@ -39,7 +39,7 @@ export class CheckcartComponent implements OnInit {
     private shoppingCartSvc: ShoppingCartService,
     private router: Router,
     private producsSvc: ProductsService
-  ) { this.checkItemsCart(); }
+  ) {}
 
   ngOnInit(): void {
     this.getStores();
@@ -111,18 +111,5 @@ export class CheckcartComponent implements OnInit {
     )
     .subscribe();
   }
-  
-  //si el carrito de compras esta vacio lo redirije a la seccion catalogo
-  private checkItemsCart(): void {
-    this.shoppingCartSvc.cartAction$.pipe(
-      tap(
-        (products: ProductInterface[]) => {
-          if(Array.isArray(products) && !products.length){     
-          this.router.navigate(['/catalogo']);     
-          }
-        }
-      )
-    )
-    .subscribe();
-  }
+
 }
