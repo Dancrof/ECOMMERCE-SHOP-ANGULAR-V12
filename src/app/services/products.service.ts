@@ -21,6 +21,14 @@ export class ProductsService {
       .pipe(catchError(this.handleError));
   }
 
+  //solicitamos a la url del servidor un producto especifico por su id
+  getProduct(id: number): Observable<ProductInterface> {
+    return this.http
+      .get<ProductInterface>(`${this.apiUrl}/products/${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  //solicitmos actualizar el stock de un producto
   updateStock(productId: number, stock: number): Observable<any> {
     const body = { stock: stock };
     return this.http.patch<any>(`${this.apiUrl}/products/${productId}`, body);
@@ -28,7 +36,7 @@ export class ProductsService {
 
   //muestra si hay un error en la peticion
   handleError(error: HttpErrorResponse) {
-    alert('no se recivio los productos');
+    alert(`No se realizo la peticion -> ${error.message}`);
     return throwError(error);
   }
 }

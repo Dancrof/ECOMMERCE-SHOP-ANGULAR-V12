@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -17,10 +18,17 @@ export class ProductComponent implements OnInit {
 
   // variable para verificar si la descripcion se muestra completa o no
   isMode: boolean = true;
+  //variable que guardar el valos del primer elemento del array de imgs
+  coverImg: string | undefined;
   
-  constructor(private render2: Renderer2) { }
+  constructor(
+    private render2: Renderer2,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    //optengo el primer elemento del array de img
+    this.coverImg = this.product.galeryImg?.shift()
   }
 
   //estoy emitiendo el producto al carrito
@@ -46,5 +54,10 @@ export class ProductComponent implements OnInit {
       this.isMode = !this.isMode;
       console.log(this.isMode)
     }
+  }
+
+  //Envio por por rutas con parametros un producto en especifico
+  findProduct(): void{
+    this.router.navigate(['catalogo/product', `${this.product.id}`,`${this.product.name}`])
   }
 }

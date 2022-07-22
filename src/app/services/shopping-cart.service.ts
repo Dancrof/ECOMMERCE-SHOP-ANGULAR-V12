@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProductInterface } from '../interfaces/product.interface';
+import { Router } from '@angular/router';
+
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +33,8 @@ export class ShoppingCartService {
   get subTotalAction$(): Observable<number> {
     return this.subTotalSubject.asObservable();
   }
+
+  constructor(private router: Router){}
 
   //Metodo publico para agregar un producto nuevo al carrito
   publicUpdateAddCart(product: ProductInterface): void {
@@ -75,9 +80,27 @@ export class ShoppingCartService {
     const groupProductCart = this.products.find(({ id }) => id === product.id);
 
     if (groupProductCart) {
-      groupProductCart.quantity = 1;
+      
+      alert('producto ya existe en el carrito')
+    
     } else {
+      
       this.products.push({ ...product, quantity: 1 });
+      
+      // alerta de que pregunta si sigue comprando a va a l carrito
+      Swal.fire({
+        title: 'Producto agregado al carrito',
+        showDenyButton: true,
+        confirmButtonText: 'Ir al carrito',
+        denyButtonText: `Seguir comprando`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.router.navigate(['/checkcart'])
+        } else if (result.isDenied) {
+          //Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
     }
 
     this.cartSubject.next(this.products);
@@ -92,7 +115,7 @@ export class ShoppingCartService {
     } else {
       alert('La cantidad no deve ser mayor al stock del producto')
     }
-
+    
     this.cartSubject.next(this.products);
   }
 
@@ -123,6 +146,7 @@ export class ShoppingCartService {
     }
     this.subTotalProducts();
     this.ivaProducts();
+    this.quantityProducts()
 
     this.cartSubject.next(this.products);
   }
