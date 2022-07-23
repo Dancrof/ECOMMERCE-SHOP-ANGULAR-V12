@@ -7,7 +7,7 @@ const routes: Routes = [
   { 
     path: '', 
     component: CheckcartComponent,
-    canActivate: [CheckIfProductsCartGuard]
+    //canActivate: [CheckIfProductsCartGuard]
   },
   { 
     path: 'shopfinish', 

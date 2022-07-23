@@ -11,7 +11,21 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class DetailsProductComponent implements OnInit {
 
-  product!: ProductInterface;
+  // el producto con sus porpiedad iniciales
+  product: ProductInterface = {
+    id: 0,
+    name: '',
+    galeryImg: [],
+    price: 0,
+    description: '',
+    categoryId: 0,
+    stock: 0,
+    quantity: 0
+  };
+  
+  //variable que guardar el valos del primer elemento del array de imgs
+  fotoSeleccionada: string | undefined;
+  //indiceSeleccionado: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,12 +41,18 @@ export class DetailsProductComponent implements OnInit {
         this.getProduct(id)
       }
     );
+   
   }
 
+  //optengo el producto selecionado del catalogo y mustro sus detalles
   getProduct(idParam: number): void{
     this.productSvc.getProduct(idParam).pipe(
       tap((productFind: ProductInterface) => {
         this.product = productFind
+        
+        //optengo el primer elemento del array de img
+        this.fotoSeleccionada = this.product.galeryImg?.shift()
+        //muestro por consola el producto
         console.log(this.product)
       })
     ).subscribe();

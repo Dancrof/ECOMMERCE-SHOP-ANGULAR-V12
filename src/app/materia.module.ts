@@ -8,6 +8,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import {MatRadioModule} from '@angular/material/radio';
         MatInputModule,
         MatTableModule,
         MatSelectModule,
-        MatRadioModule
+        MatRadioModule,
+        MatGridListModule,
+        MatChipsModule,
+        MatStepperModule
     ],
 })
 export class MaterialModule { }

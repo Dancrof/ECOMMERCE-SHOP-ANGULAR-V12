@@ -18,6 +18,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CheckcartComponent implements OnInit {
 
+  // validacion del los campos del formulario
   model = {
     firstName: '',
     lastName: '',
@@ -28,10 +29,16 @@ export class CheckcartComponent implements OnInit {
     store: ''
   }
 
+  //propiedad para guardar las tiendas
   stores: StoreInterface[] = [];
+  //valida si la entrega es a domicilio o no
   isDelivery: boolean = false;
+  //porpiedad para guardad los porductos selecionados
   cart: ProductInterface[] = [];
   
+  // propiedad para validar si el carrioto esta vacio o no
+  isEmtpyCart!: boolean;
+
   constructor(
     private dataSvc: DataService,
     private orderSvc: OrdersService,
@@ -39,13 +46,14 @@ export class CheckcartComponent implements OnInit {
     private shoppingCartSvc: ShoppingCartService,
     private router: Router,
     private producsSvc: ProductsService
-  ) {}
+  ) { this.emtpyCart()}
 
   ngOnInit(): void {
     this.getStores();
     this.getDataCart();
   }
   
+  //Realizo la orden de compra
   onSubmit({form: formValue}: NgForm): void {
     console.log('guardar', formValue);
 
@@ -68,7 +76,8 @@ export class CheckcartComponent implements OnInit {
       tap(() => this.shoppingCartSvc.resetShoppingCart())
     ).subscribe();
   }
-
+  
+  //obtengo todas las tiendas del servidor
   private getStores(): void {
     this.dataSvc.getStores()
     .pipe(tap(
@@ -104,7 +113,7 @@ export class CheckcartComponent implements OnInit {
     });
     return details;
   }
-
+  //obtengo los productos selecionados del catalogo
   private getDataCart(): void {
     this.shoppingCartSvc.cartAction$.pipe(
       tap(products => this.cart = products)
@@ -112,4 +121,16 @@ export class CheckcartComponent implements OnInit {
     .subscribe();
   }
 
+  //retorna un true y el carrito no esta vacio y false y el carrito esta vacio
+  emtpyCart(): void{
+    const dataCart = this.shoppingCartSvc.cartAction$.pipe(
+      tap((cart: ProductInterface[]) => {
+        if(Array.isArray(cart) && !cart.length){
+            this.isEmtpyCart = false
+        } else{
+          this.isEmtpyCart = true
+        }
+      })
+    ).subscribe();
+  }
 }

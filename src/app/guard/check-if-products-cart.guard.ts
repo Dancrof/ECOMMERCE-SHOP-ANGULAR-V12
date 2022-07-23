@@ -28,7 +28,7 @@ export class CheckIfProductsCartGuard implements CanActivate {
       tap((cart: ProductInterface[]) => {
         if(Array.isArray(cart) && !cart.length){
           this.exit = false;   
-          this.router.navigate(['/catalogo']);     
+          this.router.navigate(['/checkcart']);     
         } else{
           this.exit = true
         }

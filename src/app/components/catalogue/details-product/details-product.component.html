@@ -1,6 +1,10 @@
-<h1></h1>
-<h2></h2>
-<h3></h3>
-<h3></h3>
-<h3></h3>
-<h3></h3>
+<div>
+  <h3>{{ product.name }}</h3>
+  <h3>{{ product.description }}</h3>
+  <img [src]="fotoSeleccionada" alt="img-product" />
+  <div *ngFor="let photo of product.galeryImg">
+    <img [src]="photo" alt="img-product-for">
+  </div>
+  <h3>{{ product.price | currency }}</h3>
+  <h3>{{ product.stock }}</h3>
+</div>

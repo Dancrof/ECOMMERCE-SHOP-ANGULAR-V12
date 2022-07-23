@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  Renderer2,
+} from '@angular/core';
 import { NavbarService } from 'src/app/services/navbar.service';
 
 @Component({
@@ -20,7 +27,6 @@ import { NavbarService } from 'src/app/services/navbar.service';
   styleUrls: ['./options-menu.component.scss'],
 })
 export class OptionsMenuComponent implements OnInit {
-  
   @Input() hiddenMenuRef!: HTMLDivElement;
 
   //lista de opciones del menu
@@ -47,17 +53,12 @@ export class OptionsMenuComponent implements OnInit {
     },
   ];
 
-  constructor(
-    private navbarSvc: NavbarService,
-    private render2: Renderer2
-  ) {}
+  constructor(private navbarSvc: NavbarService, private render2: Renderer2) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   //oculta el menu al selecionar una opcion
-  hiddenMenu(): void{
-    this.render2.removeClass(this.hiddenMenuRef, 'active')
+  hiddenMenu(): void {
+    this.render2.removeClass(this.hiddenMenuRef, 'active');
   }
 }

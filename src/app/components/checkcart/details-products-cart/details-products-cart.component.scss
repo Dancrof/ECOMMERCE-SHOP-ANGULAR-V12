@@ -7,20 +7,31 @@ div.container__detail__cart__generla{
   border-radius: 4px;
   
   .example-container {
-    min-width: 700px;
     max-width: 854px;
-    width: 100%;
     height: 400px;
     overflow: auto;
 
     table {
       width: 100%;
+      min-width: 600px;
+      overflow: scroll;
       
       .product_fila{
         width: 50%;
       }
     }
-    
+    .cart__emtpy__message{
+      display: flex;
+      justify-content: center;
+      padding: 10rem 19rem 0 19rem;
+      align-items: center;
+      gap: 0.5rem;
+      span{
+        text-align: center;
+        font-size: 1.2rem;
+        min-width: 138px;
+      }
+    }
     th{
 
       padding: 0 0.5rem;

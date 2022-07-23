@@ -155,7 +155,7 @@
       <button
         mat-flat-button
         color="primary"
-        [disabled]="checkoutForm.form.invalid"
+        [disabled]="checkoutForm.form.invalid || !isEmtpyCart"
         type="submit"
         (click)="onSubmit(checkoutForm)"
       >
@@ -164,5 +164,5 @@
     </div>
   </form>
 
-  <app-details-products-cart></app-details-products-cart>
+  <app-details-products-cart [EmtpyCart]="isEmtpyCart"></app-details-products-cart>
 </div>

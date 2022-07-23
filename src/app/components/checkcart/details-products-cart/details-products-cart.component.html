@@ -1,6 +1,6 @@
 <div class="container__detail__cart__generla">
   <div class="example-container mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" *ngIf="EmtpyCart">
       <!-- Position Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -41,6 +41,10 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    <div class="cart__emtpy__message" *ngIf="!EmtpyCart">
+      <mat-icon>move_to_inbox</mat-icon>
+      <span>CARRITO VACIO</span>
+    </div>
   </div>
   <table class="value__cart">
     <div>

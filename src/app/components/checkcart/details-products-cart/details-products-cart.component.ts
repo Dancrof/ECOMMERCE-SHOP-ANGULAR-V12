@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
@@ -10,6 +10,10 @@ import { tap } from 'rxjs/operators';
 })
 export class DetailsProductsCartComponent implements OnInit {
 
+  //recivo un valor booleano para verificar si el carrito esta vacio o no
+  @Input() EmtpyCart!: boolean;
+
+  //Observables del shoppingService
   subTotal$ = this.shoppingCartSvc.subTotalAction$;
   iva$ = this.shoppingCartSvc.ivaAction$;
   Total$ = this.shoppingCartSvc.totalAction$;
