@@ -11,6 +11,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatStepperModule} from '@angular/material/stepper';
         MatRadioModule,
         MatGridListModule,
         MatChipsModule,
-        MatStepperModule
+        MatStepperModule,
+        MatMenuModule
     ],
 })
 export class MaterialModule { }

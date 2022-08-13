@@ -34,7 +34,7 @@ export class OptionsMenuComponent implements OnInit {
     {
       nameOption: 'Admin',
       iconOption: 'supervisor_account',
-      urlComponent: '/catalogo',
+      urlComponent: '/auth/admin',
     },
     {
       nameOption: 'Catalogo',

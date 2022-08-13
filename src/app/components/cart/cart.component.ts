@@ -10,7 +10,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
       } as dataCart"
     >
       <mat-icon
-        class="cart__icon"
+        class="status__icon"
         [routerLink]="['/checkcart']"
         matBadge="{{ dataCart.quantity }}"
         matBadgeColor="warn"

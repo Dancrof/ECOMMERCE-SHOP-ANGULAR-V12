@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -9,7 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './details-product.component.html',
   styleUrls: ['./details-product.component.scss']
 })
-export class DetailsProductComponent implements OnInit {
+export class DetailsProductComponent implements OnInit, OnDestroy {
 
   // el producto con sus porpiedad iniciales
   product: ProductInterface = {
@@ -23,10 +24,16 @@ export class DetailsProductComponent implements OnInit {
     quantity: 0
   };
   
+  //mostrar cargando si aun no llegan los productos
+  isLoading: boolean = true;
+
   //variable que guardar el valos del primer elemento del array de imgs
   fotoSeleccionada: string | undefined;
   //indiceSeleccionado: number = 0;
 
+  //obserbable para desuscribir
+  onDestroy$: Subject<boolean> = new Subject();
+  
   constructor(
     private route: ActivatedRoute,
     private productSvc: ProductsService
@@ -34,7 +41,9 @@ export class DetailsProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(
+    this.route.params.pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe(
       (params: Params) => {
         const id: number = params['id']
         const name: string = params['name']
@@ -52,10 +61,12 @@ export class DetailsProductComponent implements OnInit {
         
         //optengo el primer elemento del array de img
         this.fotoSeleccionada = this.product.galeryImg?.shift()
-        //muestro por consola el producto
-        console.log(this.product)
       })
-    ).subscribe();
+    ).subscribe(() => this.isLoading = false);
   }
-
+  
+  // desturye el componenet cuando canbiamos de ruta
+  ngOnDestroy(): void {
+    this.onDestroy$.next(true);
+  }
 }

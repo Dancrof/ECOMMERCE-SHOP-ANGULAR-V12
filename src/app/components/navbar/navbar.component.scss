@@ -6,6 +6,14 @@ a {
   color: #fff;
 }
 
-.cart__icon {
+.content_option_menu{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 210px;
+  width: 100%;
+}
+.status__icon {
   margin-top: 0.5rem;
 }

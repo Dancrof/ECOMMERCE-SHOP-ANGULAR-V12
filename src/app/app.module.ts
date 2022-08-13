@@ -8,9 +8,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './materia.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
 import { OptionsMenuComponent } from './components/options-menu/options-menu.component';
+import { UserComponent } from './components/user/user.component';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { LoadingInterceptor } from './Interceptors/loading-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { OptionsMenuComponent } from './components/options-menu/options-menu.com
     HomeComponent,
     CartComponent,
     OptionsMenuComponent,
+    UserComponent,
+    //LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,9 @@ import { OptionsMenuComponent } from './components/options-menu/options-menu.com
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

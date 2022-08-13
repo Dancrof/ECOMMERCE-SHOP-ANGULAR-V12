@@ -1,4 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
 import { NavbarService } from 'src/app/services/navbar.service';
 @Component({
   selector: 'app-navbar',
@@ -11,8 +13,8 @@ export class NavbarComponent implements OnInit {
   @Input() reftogglemenu!: HTMLDivElement;
 
   constructor(
-    private navbarSvc: NavbarService,
-    private render2: Renderer2
+    private render2: Renderer2,
+    private authSvc: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -26,5 +28,11 @@ export class NavbarComponent implements OnInit {
     } else {
       this.render2.removeClass(this.reftogglemenu, 'active')
     }
+  }
+
+  verifica(): void {
+    this.authSvc.verifity().pipe(
+      tap(res => console.log(res))
+    ).subscribe();
   }
 }

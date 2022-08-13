@@ -8,16 +8,16 @@
     <mat-icon>menu</mat-icon>
   </button>
   <a [routerLink]="['/']">
-    <span>
-      RealyShop
-    </span>
+    <span> RealyShop </span>
   </a>
   <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <app-cart></app-cart>
-  </button>
+  <div class="content_option_menu">
+    <button (click)="verifica()">
+      verificar
+    </button>
+    <app-user></app-user>
+    <button mat-icon-button aria-label="Example icon-button with share icon">
+      <app-cart></app-cart>
+    </button>
+  </div>
 </mat-toolbar>

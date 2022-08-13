@@ -1,14 +1,35 @@
 {
-  "Users": [
+  "users": [
     {
       "id": 1,
       "name": "Bryan",
       "email": "bryan@.me",
       "password": "123456",
-      "rolIdFk": 1
+      "roleId": 1
+    },
+    {
+      "id": 2,
+      "name": "Jordan",
+      "email": "Jordan@.me",
+      "password": "123456",
+      "roleId": 2
+    },
+    {
+      "id": 3,
+      "name": "Carlitos",
+      "email": "carlitos@.me",
+      "password": "123456",
+      "roleId": 2
+    },
+    {
+      "id": 4,
+      "name": "Sebastian",
+      "email": "sebastian@.me",
+      "password": "123456",
+      "roleId": 2
     }
   ],
-  "Roles": [
+  "roles": [
     {
       "id": 1,
       "rol": "Admin"

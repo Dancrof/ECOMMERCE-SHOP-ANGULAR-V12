@@ -3,11 +3,13 @@ import { ProductsService } from 'src/app/services/products.service';
 import { tap } from 'rxjs/operators';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-catalogue',
   template: `
     <section class="content__card">
+      <app-loading></app-loading>
       <app-product
         (addCartProduct)="addToCart($event)"
         [product]="product"
@@ -22,18 +24,14 @@ export class CatalogueComponent implements OnInit {
 
   constructor(
     private productSvc: ProductsService,
-    private shoppingCartSvc: ShoppingCartService
+    private shoppingCartSvc: ShoppingCartService,
   ) {}
 
   ngOnInit(): void {
     // Estoy llamando los productos y asignandolos a la propiedad product
     this.productSvc
       .getProducts()
-      .pipe(
-        tap(
-          (product: ProductInterface[]) => (this.listProduct = product)
-          )
-        )
+      .pipe(tap((product: ProductInterface[]) => (this.listProduct = product)))
       .subscribe();
   }
 

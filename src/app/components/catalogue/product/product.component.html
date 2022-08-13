@@ -1,6 +1,6 @@
 <mat-card class="example-card" >
   <mat-card-header>
-    <mat-card-title class="title" title="{{ product.name }}" (click)='findProduct()'>{{
+    <mat-card-title class="title" title="{{ product.name }}">{{
       product.name
     }}</mat-card-title>
     <mat-card-subtitle>disponibles: {{ product.stock }}</mat-card-subtitle>
@@ -14,13 +14,9 @@
     <p class="description" #descriptionRef>
       {{ product.description }}
     </p>
-    <div class="more__description" (click)="moreDescription()" *ngIf="isMode">
+    <div class="more__description" (click)='findProduct()'>
       <span>mostrar mas</span>
-      <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
-    </div>
-    <div class="more__description" (click)="moreDescription()" *ngIf="!isMode">
-      <span>mostrar menos</span>
-      <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_up</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_forward</mat-icon>
     </div>
   </mat-card-content>
   <mat-card-actions class="flex__action">
