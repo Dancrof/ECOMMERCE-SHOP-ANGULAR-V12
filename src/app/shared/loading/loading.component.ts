@@ -4,17 +4,23 @@ import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-loading',
   template: `
-    <div *ngIf="isLoading$ | async">
-      <h1>Loadin</h1>
+    <div class="lds-roller" *ngIf="isLoadin$ | async">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   `,
   styleUrls: ['./loading.component.scss'],
 })
-export class LoadingComponent implements OnInit {
+export class LoadingComponent {
   
-  isLoading$ = this.loadingSvc.isLoading$;
+  isLoadin$ = this.loadingSvc.isLoading$;
 
   constructor(private loadingSvc: LoadingService) {}
 
-  ngOnInit(): void {}
 }

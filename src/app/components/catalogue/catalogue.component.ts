@@ -3,13 +3,12 @@ import { ProductsService } from 'src/app/services/products.service';
 import { tap } from 'rxjs/operators';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
-import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-catalogue',
   template: `
+    <app-loading></app-loading>
     <section class="content__card">
-      <app-loading></app-loading>
       <app-product
         (addCartProduct)="addToCart($event)"
         [product]="product"

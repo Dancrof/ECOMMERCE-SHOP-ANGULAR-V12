@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
+import { LoadingService } from 'src/app/services/loading.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -16,7 +17,6 @@ export class DetailsProductComponent implements OnInit, OnDestroy {
   product: ProductInterface = {
     id: 0,
     name: '',
-    galeryImg: [],
     price: 0,
     description: '',
     categoryId: 0,
@@ -25,7 +25,7 @@ export class DetailsProductComponent implements OnInit, OnDestroy {
   };
   
   //mostrar cargando si aun no llegan los productos
-  isLoading: boolean = true;
+  isLoading$ = this.loadinSvc.isLoading$;
 
   //variable que guardar el valos del primer elemento del array de imgs
   fotoSeleccionada: string | undefined;
@@ -36,11 +36,12 @@ export class DetailsProductComponent implements OnInit, OnDestroy {
   
   constructor(
     private route: ActivatedRoute,
-    private productSvc: ProductsService
+    private productSvc: ProductsService,
+    private loadinSvc: LoadingService
   ) { }
 
   ngOnInit(): void {
-
+    //obtengo el id del producto el catalogo y luego lo mando a buscar
     this.route.params.pipe(
       takeUntil(this.onDestroy$)
     ).subscribe(
@@ -62,7 +63,7 @@ export class DetailsProductComponent implements OnInit, OnDestroy {
         //optengo el primer elemento del array de img
         this.fotoSeleccionada = this.product.galeryImg?.shift()
       })
-    ).subscribe(() => this.isLoading = false);
+    ).subscribe();
   }
   
   // desturye el componenet cuando canbiamos de ruta

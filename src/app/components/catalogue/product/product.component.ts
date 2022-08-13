@@ -27,7 +27,15 @@ export class ProductComponent implements OnInit {
 
   //variable que guardar el valos del primer elemento del array de imgs
   coverImg: string | undefined;
-
+  
+  //lista de calificacion del producto
+  starts: string[] = [
+    "star",
+    "star",
+    "star",
+    "star",
+    "star"
+  ];
 
   constructor(private render2: Renderer2, private router: Router) {}
 

@@ -1,6 +1,6 @@
 <section>
-  <span *ngIf="isLoading">Loading</span>
-  <div *ngIf="!isLoading">
+  <app-loading></app-loading>
+  <div>
     <h3>{{ product.name }}</h3>
     <h3>{{ product.description }}</h3>
     <img [src]="fotoSeleccionada" alt="img-product" />

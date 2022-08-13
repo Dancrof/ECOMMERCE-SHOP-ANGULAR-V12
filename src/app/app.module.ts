@@ -12,8 +12,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
 import { OptionsMenuComponent } from './components/options-menu/options-menu.component';
 import { UserComponent } from './components/user/user.component';
-import { LoadingComponent } from './shared/loading/loading.component';
-import { LoadingInterceptor } from './Interceptors/loading-interceptor.interceptor';
+import { LoadingInterceptor } from './Interceptors/loading.interceptor';
+import { CatalogueModule } from './components/catalogue/catalogue.module';
 
 @NgModule({
   declarations: [

@@ -21,11 +21,7 @@
   </mat-card-content>
   <mat-card-actions class="flex__action">
     <div>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
+      <mat-icon *ngFor="let star of starts | slice: 0:2">{{star}}</mat-icon>
     </div>
     <button mat-flat-button color="warn" (click)="addCart()" [disabled]="product.stock === 0">
       {{ product.price | currency }}
